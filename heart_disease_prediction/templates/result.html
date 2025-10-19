@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeartHealthAI - Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('static/images/hospital_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background-color: rgba(255,255,255,0.95);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #004080;
+            margin-bottom: 30px;
+        }
+        .result-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .result-card h2 {
+            color: #004080;
+            margin-bottom: 25px;
+        }
+        .result-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .positive {
+            color: #e74c3c;
+        }
+        .negative {
+            color: #27ae60;
+        }
+        .predict-again {
+            display: inline-block;
+            text-decoration: none;
+            color: #004080;
+            font-weight: 500;
+            padding: 12px 25px;
+            border: 2px solid #004080;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .predict-again:hover {
+            background-color: #004080;
+            color: white;
+        }
+        .patient-info {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #f1f1f1;
+        }
+        .patient-info p {
+            margin: 6px 0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<div class="overlay">
+    <header><i class="fas fa-heartbeat"></i> HeartHealthAI - Patient Report</header>
+
+    <div class="result-card">
+        <h2>Prediction Result</h2>
+
+        {% if result == 1 %}
+            <h3 class="positive"><i class="fas fa-heart-crack"></i> High Risk of Heart Disease</h3>
+        {% else %}
+            <h3 class="negative"><i class="fas fa-heart"></i> Low Risk / Normal</h3>
+        {% endif %}
+
+        <!-- Optional: Show patient input summary -->
+        <div class="patient-info">
+            <p><strong>Age:</strong> {{ data['Age'] }}</p>
+            <p><strong>Sex:</strong> {{ data['Sex'] }}</p>
+            <p><strong>Chest Pain Type:</strong> {{ data['ChestPainType'] }}</p>
+            <p><strong>Resting BP:</strong> {{ data['RestingBP'] }}</p>
+            <p><strong>Cholesterol:</strong> {{ data['Cholesterol'] }}</p>
+            <p><strong>Fasting BS:</strong> {{ data['FastingBS'] }}</p>
+            <p><strong>Max HR:</strong> {{ data['MaxHR'] }}</p>
+            <p><strong>Exercise Angina:</strong> {{ data['ExerciseAngina'] }}</p>
+            <p><strong>Oldpeak:</strong> {{ data['Oldpeak'] }}</p>
+            <p><strong>ST Slope:</strong> {{ data['ST_Slope'] }}</p>
+        </div>
+
+        <a href="/" class="predict-again"><i class="fas fa-undo"></i> Predict Another Patient</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeartHealthAI - Predict Your Heart Risk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('static/images/hospital_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background-color: rgba(255,255,255,0.95);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #004080;
+            margin-bottom: 30px;
+        }
+        .app-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .section-title {
+            font-size: 20px;
+            color: #004080;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        input[type="number"], select {
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        input[type="number"]:focus, select:focus {
+            border-color: #004080;
+            box-shadow: 0 0 10px rgba(0,64,128,0.3);
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(to right, #004080, #00aaff);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #003366, #0077cc);
+        }
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="overlay">
+    <header><i class="fas fa-heartbeat"></i> HeartHealthAI</header>
+
+    <div class="app-card">
+        <form method="POST">
+            <div class="section-title"><i class="fas fa-user"></i> Personal Info</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="Age" required>
+                </div>
+                <div class="form-group">
+                    <label>Sex</label>
+                    <select name="Sex">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title"><i class="fas fa-heart"></i> Heart Info</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Chest Pain Type</label>
+                    <select name="ChestPainType">
+                        <option value="TA">Typical Angina</option>
+                        <option value="ATA">Atypical Angina</option>
+                        <option value="NAP">Non-Anginal Pain</option>
+                        <option value="ASY">Asymptomatic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Resting BP</label>
+                    <input type="number" name="RestingBP" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Cholesterol</label>
+                    <input type="number" name="Cholesterol" required>
+                </div>
+                <div class="form-group">
+                    <label>Fasting BS (0/1)</label>
+                    <input type="number" min="0" max="1" name="FastingBS" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Resting ECG</label>
+                    <select name="RestingECG">
+                        <option value="Normal">Normal</option>
+                        <option value="ST">ST-T Abnormality</option>
+                        <option value="LVH">Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Max Heart Rate</label>
+                    <input type="number" name="MaxHR" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Exercise Angina</label>
+                    <select name="ExerciseAngina">
+                        <option value="Y">Yes</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Oldpeak</label>
+                    <input type="number" step="0.1" name="Oldpeak" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>ST Slope</label>
+                    <select name="ST_Slope">
+                        <option value="Up">Up</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Down">Down</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type="submit" value="Predict">
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
