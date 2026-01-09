@@ -1,4 +1,4 @@
-❤️ HeartHealthAI – Heart Disease Prediction System
+❤️ Machine Learning–Based Heart Disease Risk Prediction System
 
 A Machine Learning–Based Clinical Risk Prediction Web Application
 
