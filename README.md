@@ -182,6 +182,10 @@ Interests: Machine Learning, Healthcare AI, Data Science
 
 GitHub: https://github.com/Mvkarthikeya07
 
+📜 License
+
+This project is licensed under the MIT License.
+
 ⭐ Final Remarks
 
 This project represents a well-structured, production-style machine learning application, demonstrating both technical depth and practical relevance in predictive healthcare systems.
